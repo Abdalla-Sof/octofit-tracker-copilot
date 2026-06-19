@@ -1,5 +1,5 @@
 import express from 'express';
-import mongoose from 'mongoose';
+import { connectDatabase } from './config/database';
 import userRoutes from './routes/userRoutes';
 import teamRoutes from './routes/teamRoutes';
 import activityRoutes from './routes/activityRoutes';
@@ -7,7 +7,6 @@ import workoutRoutes from './routes/workoutRoutes';
 import leaderboardRoutes from './routes/leaderboardRoutes';
 import { errorHandler } from './utils/errorHandler';
 
-const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost:27017/octofit_db';
 const PORT = Number(process.env.PORT || 8000);
 
 const app = express();
@@ -23,10 +22,8 @@ app.use('/api/leaderboard', leaderboardRoutes);
 
 app.use(errorHandler);
 
-mongoose
-  .connect(MONGO_URL)
+connectDatabase()
   .then(() => {
-    console.log('Connected to MongoDB');
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
   .catch((err) => {
