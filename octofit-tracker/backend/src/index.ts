@@ -1,13 +1,10 @@
 import express from 'express';
-import { connectDatabase } from './config/database';
 import userRoutes from './routes/userRoutes';
 import teamRoutes from './routes/teamRoutes';
 import activityRoutes from './routes/activityRoutes';
 import workoutRoutes from './routes/workoutRoutes';
 import leaderboardRoutes from './routes/leaderboardRoutes';
 import { errorHandler } from './utils/errorHandler';
-
-const PORT = Number(process.env.PORT || 8000);
 
 const app = express();
 app.use(express.json());
@@ -22,11 +19,4 @@ app.use('/api/leaderboard', leaderboardRoutes);
 
 app.use(errorHandler);
 
-connectDatabase()
-  .then(() => {
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  })
-  .catch((err) => {
-    console.error('MongoDB connection error', err);
-    process.exit(1);
-  });
+export default app;
