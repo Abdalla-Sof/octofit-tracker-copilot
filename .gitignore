@@ -1,4 +1,9 @@
-.DS_Store
+node_modules/
+dist/
+.env
+/*.log
+octofit-tracker/frontend/node_modules/
+octofit-tracker/backend/node_modules/.DS_Store
 
 # Virtual Environment
 venv
