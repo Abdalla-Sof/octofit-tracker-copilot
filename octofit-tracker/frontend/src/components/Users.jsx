@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { apiUrl } from '../api';
 
+// Codespaces endpoint fallback for Users: -8000.app.github.dev/api/users
 export default function Users() {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);

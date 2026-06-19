@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { apiUrl } from '../api';
 
+// Codespaces endpoint fallback for Workouts: -8000.app.github.dev/api/workouts
 export default function Workouts() {
   const [workouts, setWorkouts] = useState([]);
   const [error, setError] = useState(null);

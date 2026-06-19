@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { apiUrl } from '../api';
 
+// Codespaces endpoint fallback for Leaderboard: -8000.app.github.dev/api/leaderboard
 export default function Leaderboard() {
   const [leaders, setLeaders] = useState([]);
   const [error, setError] = useState(null);

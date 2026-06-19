@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { apiUrl } from '../api';
 
+// Codespaces endpoint fallback for Teams: -8000.app.github.dev/api/teams
 export default function Teams() {
   const [teams, setTeams] = useState([]);
   const [error, setError] = useState(null);

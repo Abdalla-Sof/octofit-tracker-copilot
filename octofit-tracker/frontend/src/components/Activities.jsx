@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { apiUrl } from '../api';
 
+// Codespaces endpoint fallback for Activities: -8000.app.github.dev/api/activities
 export default function Activities() {
   const [activities, setActivities] = useState([]);
   const [error, setError] = useState(null);
